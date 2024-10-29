@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facebook Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f2f5;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            width: 360px;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            font-size: 36px;
+            color: #1877f2;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .input-box {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #dddfe2;
+            border-radius: 5px;
+        }
+        .login-btn {
+            width: 100%;
+            padding: 10px;
+            background-color: #1877f2;
+            border: none;
+            color: white;
+            font-size: 18px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .login-btn:hover {
+            background-color: #155aab;
+        }
+        .forgot-password {
+            text-align: center;
+            margin-top: 10px;
+        }
+        .forgot-password a {
+            color: #1877f2;
+            text-decoration: none;
+        }
+        .forgot-password a:hover {
+            text-decoration: underline;
+        }
+        .error-message {
+            color: red;
+            font-size: 14px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Facebook</h1>
+        <form id="loginForm" onsubmit="return validateForm()">
+            <input type="email" class="input-box" id="email" placeholder="Email or Phone" required>
+            <input type="password" class="input-box" id="password" placeholder="Password" required>
+            <div class="error-message" id="errorMessage"></div>
+            <button type="submit" class="login-btn">Log In</button>
+        </form>
+        <div class="forgot-password">
+            <a href="#">Forgotten account?</a>
+        </div>
+    </div>
+
+    <script>
+        function validateForm() {
+            var email = document.getElementById('email').value;
+            var password = document.getElementById('password').value;
+            var errorMessage = document.getElementById('errorMessage');
+
+            function isValidEmail(email) {
+  return email.includes('@');
+}
+            }
+
+            if (password.length < 6) {
+                errorMessage.innerHTML = "Password must be at least 6 characters long.";
+                return false;
+            }
+
+            errorMessage.innerHTML = "";
+            return true;
+        }
+    </script>
+</body>
+</html>
